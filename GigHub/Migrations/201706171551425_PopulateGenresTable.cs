@@ -7,15 +7,15 @@ namespace GigHub.Migrations
     {
         public override void Up()
         {
-            Sql("INSERT INTO Genres (Id, Name) VALUES (1, 'JAZZ'");
-            Sql("INSERT INTO Genres (Id, Name) VALUES (2, 'Blues'");
-            Sql("INSERT INTO Genres (Id, Name) VALUES (3, 'ROCK'");
-            Sql("INSERT INTO Genres (Id, Name) VALUES (4, 'Country'");
+            Sql("INSERT INTO Genres (Name) VALUES ('JAZZ')");
+            Sql("INSERT INTO Genres (Name) VALUES ('Blues')");
+            Sql("INSERT INTO Genres (Name) VALUES ('ROCK')");
+            Sql("INSERT INTO Genres (Name) VALUES ('Country')");
         }
         
         public override void Down()
         {
-            Sql("DELETE FROM Genres WHERE Id IN (1,2,3,4)")
+            Sql("DELETE FROM Genres WHERE Id IN (1,2,3,4)");
         }
     }
 }
