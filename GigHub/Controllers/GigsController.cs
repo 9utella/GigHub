@@ -39,6 +39,22 @@ namespace GigHub.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
+        public ActionResult Following()
+        {
+            var userId = User.Identity.GetUserId();
+            var following = _context.Followings.Where(_ => _.FollowerId == userId)
+                .Select(_=>_.Followee)
+                .ToList();
+
+            var viewModel = new FollowingViewModel
+            {
+                Followees = following
+            };
+
+            return View(viewModel);
+        }
+
         // GET: Gigs
         public ActionResult Create()
         {
